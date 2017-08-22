@@ -14,11 +14,12 @@
         <h2>Hey {{ name }},</h2>
         <h3></h3>
 
-        <div class='_container'>
+        <div class='search_container'>
             <h3>(Search will populate the top 5 restaurants in San Jose, until we can figure out how to use location in the query)</h3>
             <form action="/process" method='post'>
                 {% csrf_token %}
-                <input type="text" name='search' value=''>
+                <input type="text" name='search' placeholder='Search Restaurants'>
+                <input type="text" name='location' placeholder='Zip Code'>
                 <input type="submit" value="Find Restaurants">
             </form>
         </div>
@@ -27,16 +28,29 @@
                 <h3>Here's the restaurants we've found based on your group's preferences</h3>
                 {% for places in search_results.businesses %}
                 <div class='top_5'>
-                    <h3>{{ places.name }}</h3>
-                    <h4>Rating score of {{ places.rating }}, based on {{ places.review_count }} reviews</h4>
-                    {% if price in places %}
-                    <h4>Price: {{ places.price }}</h4>
-                    {% else %}
-                    <h4>Price: Unavailable</h4>
-                    {% endif %}
-                    <h4>{{ places.location.address1 }}, {{ places.location.address1 }}</h4>
-                    <h4>{{ places.location.city }}, {{ places.location.state }} {{ places.location.zip_code }}</h4>
-                    <h4>{{ places.display_phone }}</h4>
+                    <div class='restaurant_info'>
+                        <h3><a href='{{ places.url }}' target='_blank'>{{ places.name }}</a></h3>
+                        <h4>Rating score of {{ places.rating }}, based on {{ places.review_count }} reviews</h4>
+                        {% if places.price %}
+                            <h4>Price: {{ places.price }}</h4>
+                        {% else %}
+                            <h4>Price: Unavailable</h4>
+                        {% endif %}
+                        {% if places.location.address1 %}
+                            <h4>{{ places.location.address1 }}, {{ places.location.address2 }}</h4>
+                            <h4>{{ places.location.city }}, {{ places.location.state }} {{ places.location.zip_code }}</h4>
+                        {% else %}
+                            <h4>Address Unavailable</h4>
+                        {% endif %}
+                        {% if places.display_phone %}
+                            <h4>{{ places.display_phone }}</h4>
+                        {% else %}
+                            <h4>Phone Number Unavilable</h4>
+                        {% endif %}
+                    </div>
+                    <div class='restaurant_img_container'>
+                        <img src='{{ places.image_url }}' class='restaurant_img'>
+                    </div>
                 </div>
                 {% endfor %}
             </div>

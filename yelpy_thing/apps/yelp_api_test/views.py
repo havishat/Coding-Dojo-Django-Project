@@ -30,7 +30,8 @@ def add_friend(request):
 def process(request):
     if request.method == 'POST':
         request.session['search'] = request.POST['search']
-        request.session['search_results'] = query_api(request.POST['search'], 'san jose')
+        request.session['location'] = request.POST['location']
+        request.session['search_results'] = query_api(request.session['search'], request.session['location'])
         return redirect('/results')
     else:
         return redirect('/home')

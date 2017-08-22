@@ -34,8 +34,23 @@ body{
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #18392b;
+    background-color: #fbf6be;
     border-radius: 10px;
     display: inline-block;
+}
+.restaurant_info{
+    width: 55%;
+    vertical-align: top;
+    display: inline-block;
+}
+.restaurant_img_container{
+    width: 35px;
+    display: inline-block;
+}
+.restaurant_img{
+    width: 150px;
+    height: 150px;
+    margin-left: 80px;
 }
 .add_friends_container{
     width: 25%;
