@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Places to Eat</title>
+    </head>
+    <body>
+        <h1>Results</h1>
+        {% for places in search_results.businesses %}
+        <h2>{{ places.name }}</h2>
+        <h4>Rating: {{ places.rating }}</h4>
+        <h4>Reviews: {{ places.review_count }}</h4>
+        <h4>Price: {{ places.price }}</h4>
+        <h4>Phone Number: {{ places.display_phone }}</h4>
+        {% endfor %}
+        <form action="/goback" method='post'>
+            {% csrf_token %}
+            <input type="submit" value="Back to Home Page">
+        </form>
+        <a href='/'>Logout</a>
+    </body>
+</html>

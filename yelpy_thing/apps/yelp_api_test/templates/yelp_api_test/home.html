@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Havisha and the Gang's Meetup App</title>
+    </head>
+    <body>
+        <div>
+            <h1>Havisha and the Gang's Meetup App</h1>
+            <a href='/home' class='home_btn'>Home</a>            
+            <a href='/' class='logout_btn'>Logout</a>
+        </div>
+        <h2>Hey {{ name }},</h2>
+        <h3></h3>
+
+        <div class='_container'>
+            <h3>Search will populate the top 5 restaurants in San Jose, until we can figure out how to use location in the query</h3>
+            <form action="/process" method='post'>
+                {% csrf_token %}
+                <input type="text" name='search' value=''>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div class='add_friends_container'>
+            <form action="/add_friend" method='post'>
+                {% csrf_token %}
+                <input type="text" name='search' value=''>
+                <input type="submit" value="Add Friends">
+            </form>
+        </div>
+    </body>
+</html>
