@@ -33,14 +33,15 @@ def process(request):
         request.session['search_results'] = query_api(request.POST['search'], 'san jose')
         return redirect('/results')
     else:
-        return redirect('/')
+        return redirect('/home')
 
 def results(request):
     search_results = request.session['search_results']
     context = {
         'search_results': search_results
     }
-    return render(request, 'yelp_api_test/results.html', context)
+    print search_results
+    return render(request, 'yelp_api_test/home.html', context)
 
 def goback(request):
     return redirect('/home')
