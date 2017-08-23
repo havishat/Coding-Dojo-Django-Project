@@ -1,0 +1,310 @@
+<html>
+    <head>
+        <title>Havisha and the Gang's Meetup App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'yelp_api_test/css/index.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div class='top_bar'>
+            <h1 class='header'>Havisha and the Gang's Meetup App</h1>
+        </div>
+        <form action='/process' method='post'>
+            {% csrf_token %}
+            <div class='category_list_container'>
+                <div class='category_list'>
+                    <ul class="categories">
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="hotdog">
+                                <span>Hot Dogs</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="filipino">
+                                <span>Filipino</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="hawaiian">
+                                <span>Hawaiian</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="gourmet">
+                                <span>Specialty Food</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="wine_bars">
+                                <span>Wine Bars</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="greek">
+                                <span>Greek</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="latin">
+                                <span>Latin American</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="mideastern">
+                                <span>Middle Eastern</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="tex-mex">
+                                <span>Tex-Mex</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="cocktailbars">
+                                <span>Cocktail Bars</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class='category_list'>
+                    <ul class="categories">
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="dimsum">
+                                <span>Dim Sum</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="juicebars">
+                                <span>Juice Bars &amp; Smoothies</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="ramen">
+                                <span>Ramen</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="gluten_free">
+                                <span>Gluten-Free</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="vegan">
+                                <span>Vegan</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="bagels">
+                                <span>Bagels</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="french">
+                                <span>French</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="venues">
+                                <span>Venues &amp; Event Spaces</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="bubbletea">
+                                <span>Bubble Tea</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="hotpot">
+                                <span>Hot Pot</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class='category_list'>
+                    <ul class="categories">
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="poke">
+                                <span>Poke</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="streetvendors">
+                                <span>Street Vendors</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="cantonese">
+                                <span>Cantonese</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="icecream">
+                                <span>Ice Cream &amp; Frozen Yogurt</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="tapasmallplates">
+                                <span>Tapas/Small Plates</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="lounges">
+                                <span>Lounges</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="tacos">
+                                <span>Tacos</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="creperies">
+                                <span>Creperies</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="pakistani">
+                                <span>Pakistani</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="cafeteria">
+                                <span>Cafeteria</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class='category_list'>
+                    <ul class="categories">
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="afghani">
+                                <span>Afghan</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="pubs">
+                                <span>Pubs</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="arts">
+                                <span>Arts &amp; Entertainment</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="food_court">
+                                <span>Food Court</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="persian">
+                                <span>Persian/Iranian</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="fishnchips">
+                                <span>Fish &amp; Chips</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="cajun">
+                                <span>Cajun/Creole</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="comfortfood">
+                                <span>Comfort Food</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="falafel">
+                                <span>Falafel</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="beer_and_wine">
+                                <span>Beer, Wine &amp; Spirits</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class='category_list'>
+                    <ul class="categories">
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="cheesesteaks">
+                                <span>Cheesesteaks</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="szechuan">
+                                <span>Szechuan</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="meats">
+                                <span>Meat Shops</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="category_checkbox">
+                                <input class='category' name='category' type='checkbox' value="turkish">
+                                <span>Turkish</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class='location_input_container'>
+                <input class='location_input' name='location_input' type='text' placeholder='Desired Location'>
+            </div>
+            <input class='submit_categories' name='submit_categories' type='submit' value='Submit Your Preferences'>
+            <div class='return_home'>
+                <a href='/home' class='return_home_link'>Return to edit your group</a>
+            </div>
+        </form>
+    </body>
+</html>

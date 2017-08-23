@@ -24,15 +24,23 @@ def home(request):
     return render(request, 'yelp_api_test/home.html')  
 
 def add_friend(request):
-    
     return redirect('/home')  
+
+def categories(request):    
+    return render(request, 'yelp_api_test/categories.html')
 
 def process(request):
     if request.method == 'POST':
-        request.session['search'] = request.POST['search']
-        request.session['location'] = request.POST['location']
-        request.session['search_results'] = query_api(request.session['search'], request.session['location'])
-        return redirect('/results')
+        if not request.POST['location_input']:
+            return redirect('/categories')
+        else:
+            arr= request.POST.getlist('category')
+            filters= ','.join(arr)
+            print filters
+            # request.session['search'] = request.POST['search']
+            request.session['location_input'] = request.POST['location_input']
+            request.session['search_results'] = query_api(filters, request.session['location_input'])
+            return redirect('/results')
     else:
         return redirect('/home')
 

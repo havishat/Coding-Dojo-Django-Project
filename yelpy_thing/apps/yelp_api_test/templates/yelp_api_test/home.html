@@ -11,10 +11,11 @@
             <h1 class='header'>Havisha and the Gang's Meetup App</h1>           
             <a href='/' class='logout_btn'>Logout</a>
         </div>
-        <h2>Hey {{ name }},</h2>
-        <h3></h3>
 
-        <div class='search_container'>
+        <h2>Hey {{ name }},</h2>
+        <h3 class='restaurant_info_spacer'>Add some friends and start a group!</h3>
+
+        <!-- <div class='search_container'>
             <h3>(Search will populate the top 5 restaurants in San Jose, until we can figure out how to use location in the query)</h3>
             <form action="/process" method='post'>
                 {% csrf_token %}
@@ -22,7 +23,8 @@
                 <input type="text" name='location' placeholder='Zip Code'>
                 <input type="submit" value="Find Restaurants">
             </form>
-        </div>
+        </div> -->
+
         <div class='main_content_box'>
             <div class='top_5_container'>
                 <h3>Here's the restaurants we've found based on your group's preferences</h3>
@@ -30,30 +32,31 @@
                 <div class='top_5'>
                     <div class='restaurant_info'>
                         <h3><a href='{{ places.url }}' target='_blank'>{{ places.name }}</a></h3>
-                        <h4>Rating score of {{ places.rating }}, based on {{ places.review_count }} reviews</h4>
+                        <h4 class='restaurant_info_spacer'>Rating score of {{ places.rating }}, based on {{ places.review_count }} reviews</h4>
                         {% if places.price %}
-                            <h4>Price: {{ places.price }}</h4>
+                            <h4 class='restaurant_info_spacer'>Price: {{ places.price }}</h4>
                         {% else %}
                             <h4>Price: Unavailable</h4>
                         {% endif %}
                         {% if places.location.address1 %}
-                            <h4>{{ places.location.address1 }}, {{ places.location.address2 }}</h4>
+                            <h4 class='restaurant_info_spacer'>{{ places.location.address1 }}, {{ places.location.address2 }}</h4>
                             <h4>{{ places.location.city }}, {{ places.location.state }} {{ places.location.zip_code }}</h4>
                         {% else %}
-                            <h4>Address Unavailable</h4>
+                            <h4 class='restaurant_info_spacer'>Address Unavailable</h4>
                         {% endif %}
                         {% if places.display_phone %}
-                            <h4>{{ places.display_phone }}</h4>
+                            <h4 class='restaurant_info_spacer'>{{ places.display_phone }}</h4>
                         {% else %}
-                            <h4>Phone Number Unavilable</h4>
+                            <h4 class='restaurant_info_spacer'>Phone Number Unavilable</h4>
                         {% endif %}
                     </div>
                     <div class='restaurant_img_container'>
-                        <img src='{{ places.image_url }}' class='restaurant_img'>
+                        <a href='{{ places.url }}' target='_blank'><img src='{{ places.image_url }}' class='restaurant_img'></a>
                     </div>
                 </div>
                 {% endfor %}
             </div>
+
             <div class='add_friends_container'>
                 <form action="/add_friend" method='post'>
                     {% csrf_token %}
@@ -68,11 +71,16 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
+                            <td>{{ user.name }}</td>
                         </tr>
                     </tbody>
                 </table>
+                <form action='/categories' method='post'>
+                    {% csrf_token %}
+                    <input name='create_group' type='submit' value='Create Group'>
+                </form>
             </div>
+
         </div>
     </body>
 </html>

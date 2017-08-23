@@ -2,20 +2,27 @@
     margin: 0;
     padding: 0;
 }
+@media all and (max-width: 1024px){
+    overflow: scroll;
+}
 body{
     width: 100%;
     font-family: Helvetica;
     background-color: #E2EFE5;
 }
 .top_bar{
-    padding: 10px;
-    background-color: #20b2aa; 
+    padding: 15px;
+    color: lightgrey;
+    background-color: #563D7C; 
 }
 .header{
     display: inline-block;
 }
 .logout_btn{
     margin-left: 30%;
+    font-weight: bold;
+    font-size: 14px;
+    color: lightgrey;
     display: inline-block;
 }
 .main_content_box{
@@ -34,7 +41,7 @@ body{
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #18392b;
-    background-color: #fbf6be;
+    background-color: #d8cfe5;
     border-radius: 10px;
     display: inline-block;
 }
@@ -43,14 +50,18 @@ body{
     vertical-align: top;
     display: inline-block;
 }
+.restaurant_info_spacer{
+    margin-top: 10px;
+}
 .restaurant_img_container{
-    width: 35px;
+    width: 200px;
+    overflow: hidden;
     display: inline-block;
 }
 .restaurant_img{
-    width: 150px;
     height: 150px;
-    margin-left: 80px;
+    margin-left: 40px;
+    border-radius: 5px;
 }
 .add_friends_container{
     width: 25%;
@@ -60,4 +71,56 @@ body{
     border: 1px solid #18392b;
     border-radius: 10px;
     display: inline-block;
+}
+.category_list_container{
+    margin: 20px 0px 0px 20px;
+    display: block;
+}
+.category_list{
+    vertical-align: top;
+    display: inline-block;
+}
+.categories li{
+    margin: 10px 20px 10px 20px;
+    list-style-type: none;
+}
+.location_input_container{
+    width: 300px;
+    margin: 0px 0px 0px 375px;
+    display: block;
+}
+.location_input{
+    text-align: center;
+    border-radius: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: .1rem solid #ccc;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    cursor: auto;
+    outline: 0;
+    padding: .7em;
+    width: 100%;
+}
+.submit_categories{
+    height: 50px;
+    width: 200px;
+    margin: 20px 0px 20px 420px;
+    font-weight: Bold; 
+    color: lightgrey;
+    background-color: #563D7C;
+    border: none;
+    border-radius: 10px;
+}
+.return_home{
+    font-size: 12px;
+    margin-left: 20px;
+}
+.return_home{
+    margin-left: 450px;
+    display: block;
 }
